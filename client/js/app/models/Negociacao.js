@@ -1,5 +1,5 @@
 class Negociacao {
-    constructor(quantidade, data, valor) {
+    constructor(data, quantidade,valor) {
         this._quantidade = quantidade;
         this._data = new Date(data.getTime()); //gera uma nova data a partir da que foi passada
         this._valor = valor;
