@@ -13,4 +13,8 @@ class ListaNegociacoes{
         //devolvendo um novo array, assim as negociacoes não serão alteradas
     }
 
+    esvazia(){
+        this._negociacoes = [];
+    }
+
 }
