@@ -5,9 +5,13 @@ class NegociacaoController {
         this._inputData = $('#data');
         this._inputValor = $('#valor');
         this._inputQuantidade = $('#quantidade');
-        this._listaNegociacoes = new ListaNegociacoes();
+
+        //as arrow functions tem um escopo lexico e não dinamicos igual o das funções
+        this._listaNegociacoes = new ListaNegociacoes(model => 
+            this._negociacoesView.update(this._listaNegociacoes));
+
         this._negociacoesView = new NegociacoesView($('#negociacoesView'));
-        this._negociacoesView.update(this._listaNegociacoes);
+
         this._mensagem = new Mensagem();
         this._mensagemView = new MensagemView($('#mensagemView'));
         this._mensagemView.update(this._mensagem);
@@ -25,7 +29,7 @@ class NegociacaoController {
         console.log(this._listaNegociacoes.negociacao);
     }
 
-    apaga(){
+    apaga() {
         this._listaNegociacoes.esvazia();
         this._negociacoesView.update(this._listaNegociacoes);
 
